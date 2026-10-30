@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clasmo Diagnostics | Book Blood Tests & Health Packages Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#0ea5e9;--sky2:#38bdf8;--deep:#075985;--navy:#06304a;--pale:#e0f2fe;--bg:#f4faff;--card:#fff;--ink:#0b2a3d;--mut:#547089;--line:#cfe9f8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#07202f;--card:#0c2e45;--ink:#e8f6ff;--mut:#9fc4dc;--line:#155079;--pale:#0e3858}}
+:root[data-theme="dark"]{--bg:#07202f;--card:#0c2e45;--ink:#e8f6ff;--mut:#9fc4dc;--line:#155079;--pale:#0e3858}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;overflow-x:hidden}
+h1,h2,h3,.logo{font-family:'Sora','DM Sans',system-ui,sans-serif;letter-spacing:-.02em;line-height:1.15;margin:0}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:13px 22px;font-weight:700;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:scale(.96)}
+.btn-p{background:linear-gradient(135deg,var(--sky),#0284c7);color:#fff;box-shadow:0 10px 24px -10px #0284c7}
+.btn-w{background:#fff;color:var(--deep)}
+.btn-g{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.5)}.btn-g:hover{background:#fff;color:var(--deep)}
+.btn-s{background:var(--pale);color:var(--deep)}.btn-s:hover{background:var(--sky);color:#fff}
+.topbar{background:var(--navy);color:#bae6fd;font-size:13px;padding:7px 0}
+.topbar .wrap{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--card) 90%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--deep)}
+.logo i{font-style:normal;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--sky),var(--sky2));display:grid;place-items:center;font-size:21px;animation:beat 2.4s infinite}
+.logo small{display:block;font:700 9px 'DM Sans';letter-spacing:.2em;color:var(--mut)}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+.links{display:flex;gap:26px;font-weight:700;font-size:15px;color:var(--mut)}.links a:hover{color:var(--sky)}
+.navr{display:flex;gap:10px;align-items:center}
+.cartbtn{position:relative;background:var(--pale);border:0;border-radius:14px;height:46px;padding:0 16px;font-weight:700;color:var(--deep);display:flex;gap:8px;align-items:center;transition:background .2s}
+.cartbtn:hover{background:var(--sky);color:#fff}
+.badge{background:#ef4444;color:#fff;border-radius:99px;min-width:22px;height:22px;font-size:12px;display:grid;place-items:center;padding:0 6px}
+.badge.bump{animation:bump .4s}@keyframes bump{50%{transform:scale(1.5)}}
+.burger{display:none;background:none;border:0;font-size:26px;color:var(--deep)}
+.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(900px 500px at 85% 10%,#38bdf8aa,transparent 60%),radial-gradient(700px 500px at 0% 100%,#0369a1,transparent 60%),linear-gradient(135deg,#06304a,#0369a1 55%,#0ea5e9);padding:78px 0 130px}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:700}
+.hero h1{font-size:clamp(36px,5.6vw,64px);font-weight:800;margin:18px 0}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#7dd3fc,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:18px;color:#d6efff;max-width:520px;margin:0 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:14px;color:#d6efff}
+.cell{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fecaca,#ef4444 70%);opacity:.42;animation:drift 10s ease-in-out infinite}
+.cell::after{content:"";position:absolute;inset:30%;border-radius:50%;background:rgba(255,255,255,.25)}
+@keyframes drift{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(28px,-38px) rotate(170deg)}}
+.rise{opacity:0;transform:translateY(26px);animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.45s}
+@keyframes rise{to{opacity:1;transform:none}}
+.rep{background:#fff;color:var(--ink);border-radius:26px;padding:24px;box-shadow:0 40px 70px -30px #02223a;position:relative;transform:rotate(2deg);animation:rise .9s .35s both,floaty 6s 1.3s ease-in-out infinite}
+@keyframes floaty{50%{transform:rotate(2deg) translateY(-12px)}}
+.rep h3{font-size:18px;display:flex;justify-content:space-between;align-items:center}
+.rep small{color:#547089;font-weight:500;font-size:12px}
+.row{margin-top:14px}.row div{display:flex;justify-content:space-between;font-size:14px;font-weight:700}
+.row span{color:#16a34a}
+.bar{height:8px;background:#e0f2fe;border-radius:9px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#0ea5e9,#38bdf8);width:0;animation:grow 1.6s .9s forwards}
+@keyframes grow{to{width:var(--w)}}
+.chipf{position:absolute;background:#fff;color:var(--deep);border-radius:14px;padding:9px 14px;font-weight:700;font-size:13px;box-shadow:0 18px 30px -16px #02223a;animation:floaty2 5s ease-in-out infinite}
+@keyframes floaty2{50%{transform:translateY(-10px)}}
+.mq{background:var(--navy);color:#7dd3fc;overflow:hidden;white-space:nowrap;padding:12px 0;font-weight:700;font-size:14px}
+.mq div{display:inline-block;animation:mq 40s linear infinite}
+.mq span{margin:0 22px}.mq span::before{content:"✦ ";color:#38bdf8}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:76px 0}
+.head{text-align:center;max-width:640px;margin:0 auto 38px}
+.head h2{font-size:clamp(27px,3.8vw,40px);font-weight:800;color:var(--deep)}
+.head p{color:var(--mut);margin:10px 0 0}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.cat{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:20px 12px;text-align:center;font-weight:700;color:var(--deep);transition:all .25s}
+.cat span{display:block;font-size:34px;margin-bottom:6px;transition:transform .3s}
+.cat:hover{border-color:var(--sky);transform:translateY(-6px);box-shadow:0 20px 30px -22px var(--sky)}.cat:hover span{transform:scale(1.2) rotate(-6deg)}
+.cat.on{background:linear-gradient(135deg,var(--sky),#0284c7);color:#fff;border-color:transparent}
+.tools{display:flex;gap:12px;margin:26px 0 8px;flex-wrap:wrap;align-items:center}
+.tools input{flex:1;min-width:220px;padding:15px 18px;border:2px solid var(--line);background:var(--card);border-radius:16px;outline:0}
+.tools input:focus{border-color:var(--sky)}
+.count{color:var(--mut);font-size:14px;margin:6px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:18px}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s;animation:pop .45s both}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--sky),var(--sky2));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.card:hover{transform:translateY(-6px);border-color:var(--sky);box-shadow:0 24px 34px -24px var(--deep)}.card:hover::before{transform:none}
+@keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+.ic{width:46px;height:46px;border-radius:14px;background:var(--pale);display:grid;place-items:center;font-size:23px}
+.card h3{font-size:17px;color:var(--deep)}
+.card p{margin:0;font-size:14px;color:var(--mut);flex:1}
+.meta{font-size:12px;color:var(--mut)}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px}
+.pr{font-weight:800;font-size:18px;font-family:Sora,sans-serif}.pr small{font-size:12px;font-weight:600;color:var(--mut);font-family:'DM Sans'}
+.add{border:0;border-radius:12px;padding:10px 16px;font-weight:700;background:var(--sky);color:#fff;transition:all .2s}
+.add:hover{background:var(--deep)}
+.add.in{background:#16a34a}.pkc .add{padding:14px;font-size:15px}
+.empty{grid-column:1/-1;text-align:center;padding:40px;color:var(--mut)}
+.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:22px}
+.pkc{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:12px;position:relative;transition:transform .3s,border-color .3s}
+.pkc:hover{transform:translateY(-8px);border-color:var(--sky)}
+.pkc.best{background:linear-gradient(160deg,#06304a,#0369a1);color:#fff;border-color:transparent}
+.pkc.best h3,.pkc.best .pr{color:#fff}.pkc.best li{color:#d6efff}
+.pkc.best::before{content:"Most popular";position:absolute;top:-13px;left:26px;background:#38bdf8;color:#06304a;font-size:12px;font-weight:800;padding:4px 14px;border-radius:99px}
+.pkc h3{font-size:22px;color:var(--deep)}
+.pkc ul{list-style:none;padding:0;margin:0;flex:1;font-size:14px;color:var(--mut)}
+.pkc li{padding:4px 0}.pkc li::before{content:"✔ ";color:var(--sky);font-weight:800}
+.big{font-size:34px}.big s{font-size:15px;opacity:.6;font-weight:400;margin-left:8px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;counter-reset:s}
+.step{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:24px;counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--sky),#0284c7);color:#fff;font:800 17px Sora;margin-bottom:12px}
+.step h3{font-size:18px;color:var(--deep)}.step p{margin:6px 0 0;color:var(--mut);font-size:14px}
+details{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:16px 20px;margin-bottom:10px;max-width:760px;margin-inline:auto}
+summary{font-weight:700;cursor:pointer;color:var(--deep)}details p{margin:10px 0 0;color:var(--mut)}
+.join{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.jc{background:linear-gradient(135deg,#06304a,#0ea5e9);color:#fff;border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.jc h3{font-size:24px}.jc p{margin:0;color:#d6efff}
+footer{background:var(--navy);color:#bae6fd;padding:50px 0 100px}
+footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px}
+footer h3{font-size:16px;color:#fff;margin-bottom:8px}footer a{display:block;padding:3px 0}footer a:hover{color:#fff}
+.float{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:45;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.fab{border:0;border-radius:99px;padding:13px 20px;font-weight:800;color:#fff;box-shadow:0 14px 28px -10px #0007;display:flex;gap:8px;align-items:center;transition:transform .2s}
+.fab:hover{transform:scale(1.06)}.fab.wa{background:#16a34a}.fab.eq{background:var(--sky);animation:wob 3.5s infinite}
+@keyframes wob{0%,88%,100%{transform:none}92%{transform:rotate(-4deg)}96%{transform:rotate(4deg)}}
+.ov{position:fixed;inset:0;z-index:60;background:rgba(3,40,66,.62);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:16px}
+.ov.show{display:flex;animation:fade .25s}@keyframes fade{from{opacity:0}}
+.modal{background:var(--card);width:100%;max-width:470px;max-height:92vh;overflow:auto;border-radius:28px;padding:28px;position:relative;border-top:6px solid var(--sky);animation:zoom .4s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes zoom{from{opacity:0;transform:scale(.85) translateY(20px)}}
+.x{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:var(--pale);color:var(--deep);font-size:17px;transition:transform .2s}
+.x:hover{transform:rotate(90deg);background:var(--sky);color:#fff}
+.modal h3{font-size:24px;color:var(--deep);padding-right:36px}.modal>p,.sub{color:var(--mut);margin:6px 0 14px;font-size:14px}
+.offer{background:var(--pale);border-radius:18px;padding:16px;text-align:center;margin-bottom:14px}
+.offer b{font:800 34px Sora;color:var(--deep)}.offer s{color:var(--mut);margin-right:6px}
+label{display:block;font-size:13px;font-weight:700;margin:12px 0 4px}
+.f{width:100%;padding:12px 14px;border:2px solid var(--line);background:var(--bg);border-radius:12px;outline:0}.f:focus{border-color:var(--sky)}
+.ok{text-align:center}.tick{width:72px;height:72px;margin:0 auto 12px;border-radius:50%;background:#dcfce7;color:#16a34a;display:grid;place-items:center;font-size:36px;animation:zoom .5s}
+.ok .btn{margin:6px 4px 0}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--card);z-index:70;transform:translateX(105%);transition:transform .4s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-30px 0 60px -30px #000a;padding-top:env(safe-area-inset-top,0px)}
+.drawer.open{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}.dh h3{font-size:21px;color:var(--deep)}
+.db{flex:1;overflow:auto;padding:14px 22px}
+.it{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px dashed var(--line);animation:pop .3s}
+.it b{flex:1;font-size:14px;line-height:1.3}.it small{display:block;color:var(--mut);font-weight:500}
+.rm{border:0;background:#fee2e2;color:#b91c1c;width:30px;height:30px;border-radius:9px}
+.ce{text-align:center;color:var(--mut);padding:50px 10px}.ce span{font-size:52px;display:block}
+.df{border-top:1px solid var(--line);padding:16px 22px calc(16px + env(safe-area-inset-bottom,0px));background:var(--bg)}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:18px;margin-bottom:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.shade{position:fixed;inset:0;background:rgba(3,40,66,.5);z-index:65;opacity:0;pointer-events:none;transition:opacity .3s}.shade.show{opacity:1;pointer-events:auto}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,30px);background:var(--navy);color:#fff;padding:12px 20px;border-radius:14px;font-weight:700;z-index:80;opacity:0;transition:all .3s;pointer-events:none;max-width:90%}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (max-width:860px){.hero .wrap,.join{grid-template-columns:1fr}.rep{transform:none;animation:rise .9s .3s both}.chipf{display:none}
+.links{display:none;position:absolute;top:70px;left:0;right:0;background:var(--card);flex-direction:column;padding:16px 20px;border-bottom:1px solid var(--line)}.links.open{display:flex}.burger{display:block}.topbar .wrap>span:last-child{display:none}.cartbtn span.t{display:none}.nb{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rise,.rep{opacity:1;transform:none}.bar i{width:var(--w)}}
+
+.chip{border:1.5px solid var(--line);background:var(--card);border-radius:99px;padding:8px 18px;font-weight:700;font-size:14px;color:var(--mut);transition:all .2s}
+.chip:hover{border-color:var(--sky);color:var(--sky)}.chip.on{background:var(--sky);border-color:var(--sky);color:#fff}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:-44px;position:relative;z-index:6}
+.qt{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:18px;display:flex;gap:14px;align-items:center;font-weight:700;color:var(--deep);box-shadow:0 20px 34px -26px var(--deep);transition:transform .25s,border-color .25s}
+.qt:hover{transform:translateY(-5px);border-color:var(--sky)}
+.qt b{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--sky),var(--sky2));display:grid;place-items:center;font-size:23px;flex:none}
+.qt small{display:block;font-weight:500;color:var(--mut);font-size:13px;line-height:1.3}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.wy{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:24px;transition:transform .25s}
+.wy:hover{transform:translateY(-5px)}.wy span{font-size:30px}.wy h3{font-size:18px;color:var(--deep);margin:8px 0 4px}.wy p{margin:0;color:var(--mut);font-size:14px}
+.diy{margin-top:26px;background:linear-gradient(135deg,#06304a,#0ea5e9);color:#fff;border-radius:26px;padding:28px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.diy h3{font-size:22px}.diy p{margin:4px 0 0;color:#d6efff}
+.pr s{font-size:13px;color:var(--mut);font-weight:500;margin-left:6px}.off{font-size:12px;background:#dcfce7;color:#166534;border-radius:7px;padding:2px 7px;margin-left:6px;font-weight:700}
+.bd{display:flex;gap:6px;flex-wrap:wrap}.bd i{font-style:normal;font-size:11px;font-weight:700;background:var(--pale);color:var(--deep);border-radius:7px;padding:2px 8px}
+.join{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))!important}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span>📍 Central Lab: Satana, Maharashtra &nbsp; 📞 <a href="tel:+919272173712"><b>+91 92721 73712</b></a></span><span>🏠 Free home collection · ⚡ Fast digital reports</span></div></div>
+
+<nav><div class="wrap">
+<a href="#top" class="logo"><i>🩸</i><span>CLASMO<small>DIAGNOSTICS</small></span></a>
+<div class="links" id="links"><a href="#tests">Blood Tests</a><a href="#packages">Packages</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#join">Join Us</a></div>
+<div class="navr"><button class="cartbtn" id="cartOpen" aria-label="Open cart">🛒 <span class="t">Cart</span> <span class="badge" id="badge">0</span></button><button class="btn btn-p nb" data-open="Home collection">Book test</button><button class="burger" id="burger" aria-label="Menu">☰</button></div>
+</div></nav>
+
+<header class="hero" id="top">
+<span class="cell" style="width:80px;height:80px;left:5%;top:12%"></span><span class="cell" style="width:120px;height:120px;right:6%;bottom:8%;animation-delay:2s"></span><span class="cell" style="width:46px;height:46px;left:46%;bottom:14%;animation-delay:4s"></span>
+<div class="wrap">
+<div>
+<span class="pill rise">🩸 Pathology & health checkups</span>
+<h1 class="rise d1">Book your blood test online. <em>We come to you.</em></h1>
+<p class="rise d2">Pick any test or full body package, add it to your cart and choose a time. Our team collects the sample at your home and sends your report digitally.</p>
+<div class="cta rise d3"><a class="btn btn-w" href="#tests">🧪 Browse all tests</a><button class="btn btn-g" data-open="Home collection">📞 Request a callback</button></div>
+<div class="trust rise d4"><span>✔ Free home collection</span><span>✔ Digital reports</span><span>✔ Trained phlebotomists</span></div>
+</div>
+<div style="position:relative">
+<div class="rep"><h3>Health report <small>Sample preview</small></h3>
+<div class="row"><div>Hemoglobin <span>● Normal</span></div><div class="bar"><i style="--w:78%"></i></div></div>
+<div class="row"><div>Vitamin D <span>● Normal</span></div><div class="bar"><i style="--w:64%"></i></div></div>
+<div class="row"><div>HbA1c <span>● Normal</span></div><div class="bar"><i style="--w:52%"></i></div></div>
+<div class="row"><div>Thyroid (TSH) <span>● Normal</span></div><div class="bar"><i style="--w:70%"></i></div></div></div>
+<div class="chipf" style="top:-18px;left:-8px">🏠 Doorstep pickup</div><div class="chipf" style="bottom:-16px;right:-6px;animation-delay:1.5s">📱 Report on phone</div>
+</div>
+</div>
+</header>
+
+<div class="mq"><div id="mq"></div></div>
+<div class="wrap"><div class="quick">
+<a class="qt" href="#tests"><b>🧪</b><span>Book a test<small>Search and add to cart</small></span></a>
+<a class="qt" data-wa="Hello Clasmo, I want to share my doctor's prescription to book tests."><b>📄</b><span>Upload prescription<small>Send it on WhatsApp</small></span></a>
+<a class="qt" data-wa="Hello Clasmo, I want to download my report. My name and mobile number: "><b>📥</b><span>Download report<small>Get it on WhatsApp</small></span></a>
+<a class="qt" data-wa="Hello Clasmo, please tell me the status of my sample. Name and mobile number: "><b>📍</b><span>Track sample<small>Ask our team</small></span></a>
+</div></div>
+
+<section id="tests" style="padding-top:56px">
+<div class="wrap">
+<div class="head"><h2>Shop blood tests by health concern</h2><p>Choose a category, search a test, then tap Add to cart.</p></div>
+<div class="cats" id="cats"></div>
+<div class="tools"><input id="q" type="search" placeholder="🔍 Search: CBC, HbA1c, Thyroid, Vitamin D, Dengue…" aria-label="Search tests"></div>
+<div class="count" id="count"></div>
+<div class="grid" id="grid"></div>
+</div>
+</section>
+
+<section id="packages" style="background:var(--pale)">
+<div class="wrap">
+<div class="head"><h2>Health checkup packages</h2><p>Ready packages for you and your family. Rates are confirmed on call.</p><div class="chips" id="pchips"></div></div>
+<div class="pk" id="pk"></div>
+<div class="diy"><div><h3>🧩 Build your own package</h3><p>Add any tests to your cart and we collect them in one home visit.</p></div><a class="btn btn-w" href="#tests">Choose tests</a></div>
+</div>
+</section>
+
+<section id="how"><div class="wrap">
+<div class="head"><h2>Home collection in 4 steps</h2><p>No queues. No travel.</p></div>
+<div class="steps"><div class="step"><h3>Add to cart</h3><p>Select the tests or package you need.</p></div><div class="step"><h3>Pick a slot</h3><p>Enter your address, date and time.</p></div><div class="step"><h3>Sample pickup</h3><p>Our phlebotomist visits your home.</p></div><div class="step"><h3>Get report</h3><p>Receive results digitally when ready.</p></div></div>
+</div></section>
+
+<section id="why"><div class="wrap">
+<div class="head"><h2>Why book with Clasmo</h2><p>Simple, clear and close to home.</p></div>
+<div class="why">
+<div class="wy"><span>🏠</span><h3>Home collection</h3><p>A trained phlebotomist visits your home at your chosen time.</p></div>
+<div class="wy"><span>🛒</span><h3>Pick any test</h3><p>Add single tests or packages, or build your own package.</p></div>
+<div class="wy"><span>💬</span><h3>Reports on WhatsApp</h3><p>Receive digital reports and ask questions on the same chat.</p></div>
+<div class="wy"><span>🧾</span><h3>Clear rates</h3><p>Know your test rate before the visit. No surprises at the door.</p></div>
+</div></div></section>
+<section id="faq" style="background:var(--pale)"><div class="wrap">
+<div class="head"><h2>Common questions</h2></div>
+<details><summary>How do I pay?</summary><p>After you send your cart, our team calls to confirm tests, rates and the time slot. Payment is arranged on that call.</p></details>
+<details><summary>Do I need to fast before the test?</summary><p>Some tests such as fasting sugar and lipid profile need an 8–12 hour fast. Each test card shows this, and we confirm again on the call.</p></details>
+<details><summary>Which areas do you cover?</summary><p>We are based in Satana, Maharashtra. Call +91 92721 73712 to check home collection in your area.</p></details>
+<details><summary>Do I need a doctor's prescription?</summary><p>Not for routine tests and health packages. Some special tests may need one. You can also send your prescription on WhatsApp and we will pick the right tests.</p></details>
+<details><summary>Can I cancel or reschedule?</summary><p>Yes. Call or WhatsApp us before the visit and we will change your time slot.</p></details>
+<details><summary>When will I get my report?</summary><p>Many routine reports are ready within the same day. Timing depends on the test and we confirm it when you book.</p></details>
+</div></section>
+
+<section id="join"><div class="wrap">
+<div class="head"><h2>Grow with Clasmo</h2><p>Start a collection centre or join our team.</p></div>
+<div class="join">
+<div class="jc"><h3>Franchise partner</h3><p>Open a Clasmo brand collection centre or a self-operated diagnostic lab in your city.</p><button class="btn btn-w" data-open="Franchise enquiry">Apply for franchise</button></div>
+<div class="jc"><h3>Job vacancies</h3><p>Phlebotomists, lab technicians, front desk, sales executives and branch managers.</p><button class="btn btn-w" data-open="Job application">Apply for a job</button></div>
+<div class="jc"><h3>Corporate and camps</h3><p>Employee health checkups and health camps for offices, schools and societies.</p><button class="btn btn-w" data-open="Corporate / camp enquiry">Enquire now</button></div>
+</div></div></section>
+
+<footer id="contact"><div class="wrap">
+<div><h3>CLASMO Diagnostics Pvt Ltd</h3><p>Advanced pathology and health checkups. Central lab in Satana, Maharashtra.</p></div>
+<div><h3>Contact</h3><a href="tel:+919272173712">📞 +91 92721 73712</a><a id="wa2" href="#" target="_blank" rel="noopener">💬 Chat on WhatsApp</a></div>
+<div><h3>Quick links</h3><a href="#tests">Blood tests</a><a href="#packages">Packages</a><a href="#join">Franchise and jobs</a></div>
+</div></footer>
+
+<div class="float"><a class="fab wa" id="wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a><button class="fab eq" data-open="General enquiry">📝 Enquiry</button></div>
+
+<!-- CART DRAWER -->
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+<div class="dh"><h3>🛒 Your cart</h3><button class="x" style="position:static" id="cartClose" aria-label="Close cart">✕</button></div>
+<div class="db" id="items"></div>
+<div class="df" id="cf" hidden>
+<div class="tot"><span>Total</span><span id="total"></span></div><div class="sub" id="totNote" style="margin:0 0 6px"></div>
+<div class="two"><div><label for="cn">Name</label><input class="f" id="cn" autocomplete="name"></div><div><label for="cp">Mobile</label><input class="f" id="cp" type="tel" inputmode="tel" autocomplete="tel"></div></div>
+<label for="ca">Home address</label><textarea class="f" id="ca" rows="2" autocomplete="street-address"></textarea>
+<label for="car">Area / town</label><select class="f" id="car"><option>Satana</option><option>Kalwan</option><option>Deola</option><option>Chandwad</option><option>Malegaon</option><option>Nampur</option><option>Other (we will call)</option></select>
+<div class="two"><div><label for="cd">Preferred date</label><input class="f" id="cd" type="date"></div><div><label for="cs">Time slot</label><select class="f" id="cs"><option>Morning (6–9 am)</option><option>Morning (9–12)</option><option>Afternoon (12–4)</option><option>Evening (4–7)</option></select></div></div>
+<button class="btn btn-p" style="width:100%;margin-top:14px" id="order">💬 Send order on WhatsApp</button>
+</div>
+</aside>
+
+<!-- POPUP -->
+<div class="ov" id="promo" role="dialog" aria-modal="true" aria-label="Health checkup offer"><div class="modal"><button class="x" data-close aria-label="Close">✕</button>
+<h3>🎉 Full body checkup offer</h3><p>75+ tests with free home sample collection.</p>
+<div class="offer"><s>₹2,500</s><b>₹999</b><div class="sub" style="margin:4px 0 0">Offer details confirmed on call.</div></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-p" style="flex:1" id="promoBook">Send enquiry</button><button class="btn btn-s" style="flex:1" data-close>Browse tests</button></div></div></div>
+
+<!-- ENQUIRY -->
+<div class="ov" id="enq" role="dialog" aria-modal="true" aria-labelledby="enqT"><div class="modal"><button class="x" data-close aria-label="Close">✕</button>
+<div id="formView"><h3 id="enqT">Send an enquiry</h3><p>Share your details and we will call you back.</p>
+<form id="form"><label for="fn">Full name</label><input class="f" id="fn" required autocomplete="name">
+<label for="fp">Mobile number</label><input class="f" id="fp" type="tel" required pattern="[0-9+ ]{10,14}" inputmode="tel" placeholder="10-digit number">
+<label for="fc">City / area</label><input class="f" id="fc" required>
+<label for="ft">Enquiry for</label><select class="f" id="ft"></select>
+<label for="fm">Message (optional)</label><textarea class="f" id="fm" rows="2"></textarea>
+<button class="btn btn-p" style="width:100%;margin-top:16px" type="submit">Submit enquiry</button></form></div>
+<div class="ok" id="okView" hidden><div class="tick">✓</div><h3 style="padding:0">Enquiry ready</h3><p id="okMsg" class="sub"></p><a class="btn btn-p" id="okWa" target="_blank" rel="noopener">💬 Send on WhatsApp</a><button class="btn btn-s" data-close>Done</button></div>
+</div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+var PHONE="919272173712";
+/* ADD YOUR RATES HERE: "Test name": price in rupees. Tests without a rate show "Rate on call". */
+var PRICE={"Platinum Full Body Checkup":1499};
+/* Optional MRP for strike-through and % off: "Test name": mrp */
+var MRP={"Platinum Full Body Checkup":3500};
+var CATS=[["🩸","Blood Count"],["🍬","Diabetes"],["❤️","Heart & Lipid"],["🫘","Liver & Kidney"],["🦋","Thyroid"],["🧬","Hormones & Fertility"],["☀️","Vitamins & Minerals"],["🌡️","Fever & Infections"],["🎗️","Cancer Markers"],["🧪","Urine & Allergy"]];
+var T=[
+["Complete Blood Count (CBC)",0,"Hemoglobin, RBC, WBC, platelets and indices. Detects anaemia and infection.",0],
+["Hemoglobin (Hb)",0,"Oxygen-carrying protein level to screen for anaemia.",0],
+["ESR",0,"Non-specific marker of inflammation.",0],
+["Peripheral Blood Smear",0,"Microscopic study of blood cell shape and count.",0],
+["Blood Group & Rh Factor",0,"ABO group and Rh typing.",0],
+["Platelet Count",0,"Useful in dengue, fever and bleeding concerns.",0],
+["TLC & DLC",0,"White cell total and differential count.",0],
+["PT / INR",0,"Blood clotting time, used for blood-thinner monitoring.",0],
+["D-Dimer",0,"Clot breakdown marker.",0],
+["Fasting Blood Sugar (FBS)",1,"Glucose after an overnight fast.",1],
+["Post-Prandial Sugar (PPBS)",1,"Glucose two hours after a meal.",0],
+["HbA1c",1,"Average blood sugar over the last 3 months.",0],
+["Random Blood Sugar",1,"Glucose at any time of the day.",0],
+["Fasting Insulin",1,"Insulin level to assess insulin resistance.",1],
+["HOMA-IR",1,"Insulin resistance index from glucose and insulin.",1],
+["Urine Microalbumin",1,"Early sign of kidney damage in diabetes.",0],
+["Lipid Profile",2,"Total, LDL, HDL cholesterol and triglycerides.",1],
+["Total Cholesterol",2,"Overall cholesterol level.",1],
+["hs-CRP",2,"Sensitive inflammation marker linked to heart risk.",0],
+["Homocysteine",2,"Amino acid linked to heart and vessel health.",1],
+["Apolipoprotein A1 & B",2,"Detailed cardiac risk markers.",1],
+["Troponin I",2,"Heart muscle injury marker.",0],
+["Liver Function Test (LFT)",3,"Bilirubin, SGOT, SGPT, ALP and proteins.",0],
+["SGOT (AST)",3,"Liver and muscle enzyme.",0],
+["SGPT (ALT)",3,"Liver-specific enzyme.",0],
+["Kidney Function Test (KFT)",3,"Urea, creatinine and electrolytes.",0],
+["Serum Creatinine",3,"Key marker of kidney filtration.",0],
+["Urea",3,"Waste product filtered by the kidneys.",0],
+["Uric Acid",3,"Screens for gout and kidney stone risk.",0],
+["Serum Electrolytes",3,"Sodium, potassium and chloride balance.",0],
+["TSH",4,"Screens for under- and over-active thyroid.",0],
+["Thyroid Profile (T3, T4, TSH)",4,"Complete thyroid hormone assessment.",0],
+["Free T4",4,"Active thyroid hormone level.",0],
+["Anti-TPO Antibodies",4,"Detects autoimmune thyroid disease.",0],
+["Prolactin",5,"Hormone test for menstrual and fertility concerns.",0],
+["LH & FSH",5,"Reproductive hormones for fertility work-up.",0],
+["AMH",5,"Ovarian reserve marker.",0],
+["Beta-HCG",5,"Pregnancy hormone test.",0],
+["Total Testosterone",5,"Male and female hormone assessment.",0],
+["Cortisol (Morning)",5,"Stress hormone from the adrenal gland.",0],
+["Vitamin D (25-OH)",6,"Bone and immunity vitamin level.",0],
+["Vitamin B12",6,"Linked to nerves, energy and anaemia.",0],
+["Folic Acid",6,"Needed for blood cell formation.",0],
+["Iron Profile",6,"Serum iron, TIBC and ferritin.",1],
+["Ferritin",6,"Body iron stores.",0],
+["Calcium",6,"Bone, muscle and nerve health marker.",0],
+["Phosphorus",6,"Bone and kidney related mineral.",0],
+["Widal Test",7,"Screens for typhoid fever.",0],
+["Typhi Dot IgM",7,"Rapid typhoid antibody test.",0],
+["Dengue NS1 / IgM / IgG",7,"Detects dengue infection.",0],
+["Malaria Antigen",7,"Rapid detection of malaria parasite.",0],
+["CRP (C-Reactive Protein)",7,"Detects active infection or inflammation.",0],
+["HBsAg (Hepatitis B)",7,"Screens for hepatitis B infection.",0],
+["HCV Antibody",7,"Screens for hepatitis C infection.",0],
+["HIV 1 & 2",7,"Confidential HIV screening.",0],
+["VDRL",7,"Screens for syphilis.",0],
+["PSA (Prostate)",8,"Prostate health screening for men.",0],
+["CA 125",8,"Ovarian marker, used with doctor advice.",0],
+["CEA",8,"Marker for colon and other cancers.",0],
+["AFP",8,"Liver marker, also used in pregnancy screening.",0],
+["Total IgE",9,"Screens for allergic tendency.",0],
+["Urine Routine & Microscopy",9,"Complete urine examination.",0],
+["Urine Culture & Sensitivity",9,"Finds urine infection and the right antibiotic.",0],
+["Stool Routine",9,"Screens for stomach and gut infections.",0]
+];
+var PK=[
+{n:"Platinum Full Body Checkup",best:1,a:"all",l:["CBC","Lipid Profile and LFT","Kidney Function and TSH","Vitamin D and B12","HbA1c and Fasting Sugar"]},
+{n:"Basic Wellness Package",a:"all",l:["CBC and ESR","Fasting Sugar","Lipid Profile","LFT and KFT","Urine Routine"]},
+{n:"Men's Health Package",a:"men",l:["CBC and HbA1c","Lipid Profile","LFT and KFT","PSA","Vitamin D and B12"]},
+{n:"Women's Health Package",a:"women",l:["CBC and Iron Profile","Thyroid Profile","Vitamin D and B12","Calcium","Fasting Sugar"]},
+{n:"Senior Citizen Package",a:"senior",l:["CBC and HbA1c","Lipid Profile","LFT and KFT","TSH","Vitamin D, B12 and Calcium"]},
+{n:"Diabetes Care Package",a:"diabetes",l:["Fasting and Post-meal Sugar","HbA1c","Urine Microalbumin","Kidney Function"]},
+{n:"Heart Health Package",a:"heart",l:["Lipid Profile","hs-CRP","Homocysteine","Sugar and Uric Acid"]},
+{n:"Thyroid Check Package",a:"women",l:["T3, T4 and TSH","Free T4","Anti-TPO Antibodies"]},
+{n:"Vitamin Check Package",a:"all",l:["Vitamin D","Vitamin B12","Folic Acid","Iron Profile"]}
+];
+var PA=[["all","All"],["men","Men"],["women","Women"],["senior","Senior"],["diabetes","Diabetes"],["heart","Heart"]],pa="all";
+var $=function(i){return document.getElementById(i)},cat=-1,cart=[];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function rs(n){return "₹"+n.toLocaleString("en-IN")}
+function priceHtml(n){if(!PRICE[n])return '<span class="pr"><small>Rate on call</small></span>';var m=MRP[n];return '<span class="pr">'+rs(PRICE[n])+(m?'<s>'+rs(m)+'</s><span class="off">'+Math.round((1-PRICE[n]/m)*100)+'% off</span>':'')+'</span>'}
+try{cart=JSON.parse(localStorage.getItem("clasmoCart")||"[]")}catch(e){cart=[]}
+function save(){try{localStorage.setItem("clasmoCart",JSON.stringify(cart))}catch(e){}}
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.h);toast.h=setTimeout(function(){t.classList.remove("show")},1800)}
+
+function cats(){var h='<button class="cat'+(cat<0?' on':'')+'" data-c="-1"><span>🧪</span>All tests</button>';CATS.forEach(function(c,i){h+='<button class="cat'+(cat===i?' on':'')+'" data-c="'+i+'"><span>'+c[0]+'</span>'+esc(c[1])+'</button>'});$("cats").innerHTML=h}
+function addBtn(n){var inn=cart.indexOf(n)>-1;return '<button class="add'+(inn?' in':'')+'" data-add="'+esc(n)+'">'+(inn?'✓ Added':'+ Add to cart')+'</button>'}
+function render(){var q=$("q").value.toLowerCase().trim(),h="",n=0;
+T.forEach(function(t,i){if((cat<0||t[1]===cat)&&(t[0]+" "+t[2]+" "+CATS[t[1]][1]).toLowerCase().indexOf(q)>-1){n++;
+h+='<div class="card" style="animation-delay:'+Math.min(n,12)*30+'ms"><div class="ic">'+CATS[t[1]][0]+'</div><h3>'+esc(t[0])+'</h3><p>'+esc(t[2])+'</p><div class="bd"><i>🏠 Home collection</i><i>🏥 Lab visit</i></div><span class="meta">'+(t[3]?'🍽 Fasting required (confirmed on call)':'No special preparation usually needed')+'</span><div class="foot">'+priceHtml(t[0])+addBtn(t[0])+'</div></div>'}});
+$("grid").innerHTML=h||'<div class="empty">No test found. Call +91 92721 73712 and we will help.</div>';
+$("count").textContent=n+" test"+(n===1?"":"s")+" shown"}
+function pk(){var h="";PK.forEach(function(p){if(pa!=="all"&&p.a!==pa&&p.a!=="all")return;h+='<div class="pkc'+(p.best?' best':'')+'"><h3>'+esc(p.n)+'</h3><div class="pr big">'+(PRICE[p.n]?priceHtml(p.n):'<small style="font-size:15px">Rate on call</small>')+'</div><ul>'+p.l.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul>'+addBtn(p.n)+'</div>'});
+$("pk").innerHTML=h;$("pchips").innerHTML=PA.map(function(c){return '<button class="chip'+(pa===c[0]?' on':'')+'" data-p="'+c[0]+'">'+c[1]+'</button>'}).join("")}
+function refresh(){render();pk();cartUI()}
+
+function cartUI(){var b=$("badge");b.textContent=cart.length;
+var h="";cart.forEach(function(n){h+='<div class="it"><b>'+esc(n)+'<small>'+(PRICE[n]?rs(PRICE[n]):'Rate confirmed on call')+'</small></b><button class="rm" data-rm="'+esc(n)+'" aria-label="Remove '+esc(n)+'">✕</button></div>'});
+$("items").innerHTML=h||'<div class="ce"><span>🛒</span>Your cart is empty.<br>Add tests to book a home collection.</div>';
+$("cf").hidden=!cart.length;
+var sum=0,un=0;cart.forEach(function(n){PRICE[n]?sum+=PRICE[n]:un++});
+$("total").textContent=sum?rs(sum):"—";$("totNote").textContent=un?(un+" item"+(un>1?"s":"")+" with rate confirmed on call"):""}
+function toggle(n){var i=cart.indexOf(n);if(i>-1){cart.splice(i,1);toast("Removed from cart")}else{cart.push(n);toast("✓ Added: "+n);var b=$("badge");b.classList.remove("bump");void b.offsetWidth;b.classList.add("bump")}save();refresh()}
+function drawer(o){$("drawer").classList.toggle("open",o);$("shade").classList.toggle("show",o);document.body.style.overflow=o?"hidden":""}
+
+document.addEventListener("click",function(e){var t=e.target;
+var pc=t.closest("[data-p]");if(pc){pa=pc.dataset.p;pk();return}
+var a=t.closest("[data-add]");if(a){toggle(a.dataset.add);return}
+var r=t.closest("[data-rm]");if(r){toggle(r.dataset.rm);return}
+var c=t.closest("[data-c]");if(c&&c.closest("#cats")){cat=+c.dataset.c;cats();render();return}
+var o=t.closest("[data-open]");if(o){openEnq(o.dataset.open);return}
+if(t.closest("[data-close]")||t.classList.contains("ov"))hide()});
+$("q").addEventListener("input",render);
+$("cartOpen").addEventListener("click",function(){drawer(true)});$("cartClose").addEventListener("click",function(){drawer(false)});$("shade").addEventListener("click",function(){drawer(false)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){hide();drawer(false)}});
+
+$("order").addEventListener("click",function(){
+var n=$("cn").value.trim(),p=$("cp").value.trim(),a=$("ca").value.trim();
+if(!n||!/^[0-9+ ]{10,14}$/.test(p)||!a){toast("Please enter name, valid mobile and address");(!n?$("cn"):!/^[0-9+ ]{10,14}$/.test(p)?$("cp"):$("ca")).focus();return}
+var sum=0;var lines=cart.map(function(x,i){if(PRICE[x])sum+=PRICE[x];return (i+1)+". "+x+(PRICE[x]?" - "+rs(PRICE[x]):"")});
+var msg="Hello Clasmo Diagnostics, I want to book home collection.\n\n*Tests:*\n"+lines.join("\n")+(sum?"\n\nKnown total: "+rs(sum):"")+"\n\nName: "+n+"\nMobile: "+p+"\nAddress: "+a+", "+$("car").value+"\nDate: "+($("cd").value||"Any")+"\nSlot: "+$("cs").value;
+window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank","noopener");toast("Opening WhatsApp…")});
+var d=new Date();$("cd").min=d.toISOString().slice(0,10);
+
+var opts=["General enquiry","Home collection","Franchise enquiry","Job application"].concat(PK.map(function(p){return p.n}),T.map(function(t){return t[0]}));
+$("ft").innerHTML=opts.map(function(o){return '<option>'+esc(o)+'</option>'}).join("");
+function show(id){$(id).classList.add("show");document.body.style.overflow="hidden"}
+function hide(){document.querySelectorAll(".ov.show").forEach(function(o){o.classList.remove("show")});document.body.style.overflow=""}
+function openEnq(tp){drawer(false);$("promo").classList.remove("show");$("formView").hidden=false;$("okView").hidden=true;
+$("ft").value=opts.indexOf(tp)>-1?tp:"General enquiry";
+$("enqT").textContent=/Franchise/.test(tp)?"Franchise enquiry":/Job/.test(tp)?"Apply for a job":"Send an enquiry";
+show("enq");setTimeout(function(){$("fn").focus()},50)}
+$("promoBook").addEventListener("click",function(){openEnq("Home collection")});
+$("form").addEventListener("submit",function(e){e.preventDefault();
+var m="Hello Clasmo Diagnostics, I would like to enquire.\nName: "+$("fn").value+"\nMobile: "+$("fp").value+"\nCity: "+$("fc").value+"\nFor: "+$("ft").value+($("fm").value?"\nMessage: "+$("fm").value:"");
+$("okWa").href="https://wa.me/"+PHONE+"?text="+encodeURIComponent(m);
+$("okMsg").textContent="Thank you, "+$("fn").value.split(" ")[0]+". Tap below to send your details to our team on WhatsApp, or call +91 92721 73712.";
+$("formView").hidden=true;$("okView").hidden=false;$("form").reset()});
+
+var wa="https://wa.me/"+PHONE+"?text="+encodeURIComponent("Hello Clasmo Diagnostics, I need help with a blood test.");$("wa").href=wa;$("wa2").href=wa;
+$("burger").addEventListener("click",function(){$("links").classList.toggle("open")});$("links").addEventListener("click",function(){$("links").classList.remove("open")});
+var mq=T.map(function(t){return '<span>'+esc(t[0])+'</span>'}).join("");$("mq").innerHTML=mq+mq;
+
+document.querySelectorAll("[data-wa]").forEach(function(a){a.href="https://wa.me/"+PHONE+"?text="+encodeURIComponent(a.dataset.wa);a.target="_blank";a.rel="noopener"});
+cats();refresh();
+setTimeout(function(){var s=false;try{s=sessionStorage.getItem("promo")}catch(e){}
+if(!s){show("promo");try{sessionStorage.setItem("promo","1")}catch(e){}}},1500);
+</script>
+</body>
+</html>
